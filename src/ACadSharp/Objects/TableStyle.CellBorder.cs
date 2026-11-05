@@ -1,4 +1,5 @@
 ﻿using ACadSharp.Attributes;
+using ACadSharp.Tables;
 
 namespace ACadSharp.Objects;
 
@@ -47,6 +48,11 @@ public partial class TableStyle
 		public bool IsInvisible { get; set; } = false;
 
 		/// <summary>
+		/// Gets or sets the type of line.
+		/// </summary>
+		public LineType LineType { get; set; }
+
+		/// <summary>
 		/// Gets or sets the line weight to use when rendering the entity.
 		/// </summary>
 		[DxfCodeValue(274)]
@@ -63,6 +69,8 @@ public partial class TableStyle
 		/// </summary>
 		[DxfCodeValue(91)]
 		public BorderType Type { get; set; } = BorderType.Single;
+
+		public LinkedTableData Owner { get; internal set; }
 
 		/// <summary>
 		/// Initializes a new instance of the CellBorder class with the specified edge flags.
